@@ -1,1 +1,18 @@
-<p>jwt-decoder works!</p>
+<div class="jwt-decoder-container">
+    <h2>JWT Viewer</h2>
+
+  <div class="jwt-decoder-content">
+    <textarea
+      type="text"
+      [(ngModel)]="token"
+      placeholder="Paste JWT here"
+    ></textarea>
+
+    @if(jwt.payload()) {
+      <textarea [value]="jwt.payload() | json" disabled></textarea>
+    }@else {
+        <p class="no-token-decoded">No token decoded yet</p>
+    }
+  </div>
+    <app-button class="button" (click)="decodeToken()" [label]="'Decode'"/>
+  </div>

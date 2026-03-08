@@ -1,0 +1,38 @@
+@import '../../styles/_features.scss';
+
+:host {
+  display: block;
+  height: 100%;
+
+  .jwt-decoder-container {
+    @include feature-container;
+    .jwt-decoder-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      height: 100%;
+      max-width: 1600px;
+
+      input,
+      textarea {
+        @include input-style;
+
+        height: 300px;
+        resize: none;
+      }
+
+      .no-token-decoded {
+        color: #52525b;
+        font-style: italic;
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+    }
+
+    .button {
+      width: 150px;
+      margin-top: 1.5rem;
+      align-self: self-end;
+    }
+  }
+}

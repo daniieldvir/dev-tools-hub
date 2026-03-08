@@ -1,17 +1,10 @@
 [
   {
-    "id": "json_formatter",
-    "name": "JSON Formatter",
-    "description": "Format and validate JSON data",
+    "id": "json_tools",
+    "name": "JSON Tools",
+    "description": "Format and validate JSON data, convert JSON to TypeScript interface",
     "icon": "Database",
     "category": "data"
-  },
-  {
-    "id": "json_to_interface",
-    "name": "JSON to Interface",
-    "description": "Convert JSON to TypeScript interface",
-    "icon": "Code",
-    "category": "developer"
   },
   {
     "id": "timestamp_converter",
