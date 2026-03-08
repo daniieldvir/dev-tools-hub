@@ -1,1 +1,34 @@
-<p>regex-tester works!</p>
+<div class="regex-tester-container">
+  <div class="tabs">
+    <button
+      class="tab"
+      [class.active]="activeTab() === 'validator'"
+      (click)="activeTab.set('validator')">
+      Regex Validator
+    </button>
+    <button
+      class="tab"
+      [class.active]="activeTab() === 'generator'"
+      (click)="activeTab.set('generator')">
+      Regex Generator
+    </button>
+    <button
+      class="tab"
+      [class.active]="activeTab() === 'toText'"
+      (click)="activeTab.set('toText')">
+      Regex to Text
+    </button>
+  </div>
+
+  @if (activeTab() === 'validator') {
+    <app-regex-validator />
+  }
+
+  @if (activeTab() === 'generator') {
+    <app-regex-generator />
+  }
+
+  @if (activeTab() === 'toText') {
+    <app-regex-to-text />
+  }
+</div>

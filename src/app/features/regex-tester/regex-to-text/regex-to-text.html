@@ -1,0 +1,44 @@
+<div class="tab-content">
+  <h2>Regex to Text</h2>
+
+  <div class="to-text-layout">
+    <div class="input-group">
+      <label>Regex Pattern</label>
+      <div class="regex-input-row">
+        <span class="regex-delimiter">/</span>
+        <input
+          type="text"
+          [ngModel]="regexToParseInput()"
+          (ngModelChange)="regexToParseInput.set($event)"
+          (keydown.enter)="parseRegexToText()"
+          placeholder="Enter regex to explain..."
+          class="regex-pattern-input" />
+        <span class="regex-delimiter">/</span>
+      </div>
+    </div>
+
+    <app-button class="button" [label]="'Explain'" (click)="parseRegexToText()"></app-button>
+
+    @if (parseError()) {
+      <div class="status invalid">{{ parseError() }}</div>
+    }
+
+    @if (parsedExplanation().length > 0) {
+      <div class="explanation-section">
+        <label>Explanation:</label>
+        <div class="explanation-table">
+          <div class="explanation-header">
+            <span>Token</span>
+            <span>Meaning</span>
+          </div>
+          @for (item of parsedExplanation(); track $index) {
+            <div class="explanation-row">
+              <code class="explanation-token">{{ item.token }}</code>
+              <span class="explanation-desc">{{ item.description }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

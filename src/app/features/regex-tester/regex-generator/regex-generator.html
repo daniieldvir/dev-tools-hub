@@ -1,0 +1,55 @@
+<div class="tab-content">
+  <h2>Regex Generator</h2>
+
+  <div class="generator-layout">
+    <div class="input-group">
+      <label>Describe what you want to match</label>
+      <div class="generator-input-row">
+        <input
+          type="text"
+          [ngModel]="generatorInput()"
+          (ngModelChange)="generatorInput.set($event)"
+          (keydown.enter)="addPart(generatorInput())"
+          placeholder='e.g. "digit 3 times", "letter", "email", "start"' />
+        <app-button [label]="'Add'" (click)="addPart(generatorInput())"></app-button>
+      </div>
+    </div>
+
+    <div class="available-tokens">
+      <label>Available tokens:</label>
+      <div class="token-chips">
+        @for (token of ['digit', 'letter', 'word', 'whitespace', 'any', 'start', 'end', 'email', 'url', 'phone', 'ip', 'date', 'dot', 'optional']; track token) {
+          <button class="token-chip" (click)="addPart(token)">{{ token }}</button>
+        }
+      </div>
+    </div>
+
+    @if (parts().length > 0) {
+      <div class="parts-list">
+        <div class="parts-header">
+          <label>Parts:</label>
+          <button class="clear-btn" (click)="clearParts()">Clear all</button>
+        </div>
+        @for (part of parts(); track $index) {
+          <div class="part-item">
+            <span class="part-label">{{ part.label }}</span>
+            <code class="part-value">{{ part.value }}</code>
+            <button class="remove-btn" (click)="removePart($index)">x</button>
+          </div>
+        }
+      </div>
+
+      <div class="built-regex-section">
+        <label>Generated Regex:</label>
+        @if (builtRegex(); as regex) {
+          <div class="built-regex">
+            <code>/{{ regex }}/</code>
+            <button class="copy-btn" (click)="copyBuiltRegex()">Copy</button>
+          </div>
+        } @else {
+          <div class="status invalid">Invalid combination</div>
+        }
+      </div>
+    }
+  </div>
+</div>

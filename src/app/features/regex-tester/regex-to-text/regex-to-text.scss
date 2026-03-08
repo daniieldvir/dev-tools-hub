@@ -1,0 +1,46 @@
+@import '../_regex-shared.scss';
+
+:host {
+  @include regex-tab-base;
+
+  .explanation-table {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+
+    .explanation-header,
+    .explanation-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      padding: 0.55rem 1rem;
+    }
+
+    .explanation-header {
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      span {
+        color: #a1a1aa;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+    }
+
+    .explanation-row {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      &:last-child {
+        border-bottom: none;
+      }
+      &:hover {
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .explanation-token {
+        color: #ffc796;
+        font-family: 'Fira Code', monospace;
+        font-weight: 600;
+      }
+      .explanation-desc {
+        color: #d4d4d8;
+      }
+    }
+  }
+}

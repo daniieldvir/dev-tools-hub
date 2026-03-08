@@ -1,0 +1,117 @@
+@import '../_regex-shared.scss';
+
+:host {
+  @include regex-tab-base;
+
+  .generator-input-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: stretch;
+    input {
+      flex: 1;
+    }
+  }
+
+  .available-tokens {
+    margin-bottom: 1.5rem;
+    .token-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      .token-chip {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #a1a1aa;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        &:hover {
+          background: rgba(255, 199, 150, 0.1);
+          border-color: rgba(255, 199, 150, 0.3);
+          color: #ffc796;
+        }
+      }
+    }
+  }
+
+  .parts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    label {
+      margin: 0;
+    }
+    .clear-btn {
+      background: transparent;
+      border: none;
+      color: #f87171;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+  }
+
+  .part-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    margin-bottom: 0.4rem;
+    .part-label {
+      color: #a1a1aa;
+      font-size: 0.85rem;
+      flex: 1;
+    }
+    .part-value {
+      color: #ffc796;
+      font-family: 'Fira Code', monospace;
+      background: rgba(255, 199, 150, 0.08);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+    .remove-btn {
+      background: transparent;
+      border: none;
+      color: #71717a;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      &:hover {
+        color: #f87171;
+      }
+    }
+  }
+
+  .built-regex {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 199, 150, 0.05);
+    border: 1px solid rgba(255, 199, 150, 0.15);
+    border-radius: 10px;
+    code {
+      flex: 1;
+      color: #ffc796;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #a1a1aa;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      &:hover {
+        color: #ffc796;
+      }
+    }
+  }
+}
