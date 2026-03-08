@@ -7,6 +7,13 @@
     "category": "data"
   },
   {
+    "id": "json_to_interface",
+    "name": "JSON to Interface",
+    "description": "Convert JSON to TypeScript interface",
+    "icon": "Code",
+    "category": "developer"
+  },
+  {
     "id": "timestamp_converter",
     "name": "Timestamp Converter",
     "description": "Convert Unix timestamps to readable dates",

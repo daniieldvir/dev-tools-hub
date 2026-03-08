@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { JsonFormatter } from '../../features/json-formatter/json-formatter';
+import { JsonTools } from '../../features/json-tools/json-tools';
 
 @Component({
   selector: 'app-feature-page',
-  imports: [JsonFormatter],
+  imports: [ JsonTools],
   templateUrl: './feature-page.html',
   styleUrl: './feature-page.scss',
 })

@@ -2,7 +2,7 @@
   display: block;
   height: 100%;
 
-  .json-formatter-container {
+  .json-tools-container {
     display: flex;
     flex-direction: column;
 
@@ -16,7 +16,7 @@
       padding-bottom: 1rem;
     }
 
-    .json-formatter-content {
+    .json-tools-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto 1fr;
@@ -52,8 +52,14 @@
       }
     }
 
-    .button {
-      align-self: self-end;
+    .json-tools-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      .button {
+        width: 200px;
+      }
     }
   }
 }

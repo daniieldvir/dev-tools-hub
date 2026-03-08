@@ -1,6 +1,7 @@
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -12,4 +13,5 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
   border: none;
   cursor: pointer;
+  width: 100%;
 }

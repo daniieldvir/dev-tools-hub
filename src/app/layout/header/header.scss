@@ -64,10 +64,6 @@
             &:hover {
               background: var(--surface-hover);
               color: var(--primary-color);
-
-              .nav-icon {
-                transform: translateY(-2px);
-              }
             }
 
             &.active {
