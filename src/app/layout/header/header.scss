@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+
+    nav {
+      ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+
+        a {
+          text-decoration: none;
+          color: #000;
+
+          &.active {
+            color: #007bff;
+          }
+        }
+      }
+    }
+  }
+}
