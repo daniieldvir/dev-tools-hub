@@ -21,6 +21,13 @@
     "category": "security"
   },
   {
+    "id": "password_generator",
+    "name": "Password Generator",
+    "description": "Generate secure random passwords",
+    "icon": "Shield",
+    "category": "security"
+  },
+  {
     "id": "regex_tester",
     "name": "Regex Tester",
     "description": "Test regular expressions against text",
@@ -29,8 +36,8 @@
   },
   {
     "id": "base64_encoder",
-    "name": "Base64 Encoder/Decoder",
-    "description": "Convert text to/from Base64",
+    "name": "Base64 Encoder",
+    "description": "Convert text to and from Base64",
     "icon": "Code",
     "category": "encoding"
   },
@@ -47,68 +54,5 @@
     "description": "Convert color formats (HEX, RGB, HSL)",
     "icon": "Globe",
     "category": "web"
-  },
-  {
-    "id": "markdown_preview",
-    "name": "Markdown Preview",
-    "description": "Live preview Markdown content",
-    "icon": "FileText",
-    "category": "formatting"
-  },
-  {
-    "id": "css_minifier",
-    "name": "CSS Minifier",
-    "description": "Minify CSS code for production",
-    "icon": "FileText",
-    "category": "formatting"
-  },
-  {
-    "id": "command_palette",
-    "name": "Command Palette",
-    "description": "Quick search to open tools or navigate",
-    "icon": "LayoutDashboard",
-    "category": "ui"
-  },
-  {
-    "id": "favorites",
-    "name": "Favorites",
-    "description": "Mark tools as favorites for quick access",
-    "icon": "LayoutDashboard",
-    "category": "ui"
-  },
-  {
-    "id": "dark_mode",
-    "name": "Dark Mode",
-    "description": "Toggle between light and dark themes",
-    "icon": "LayoutDashboard",
-    "category": "ui"
-  },
-  {
-    "id": "analytics",
-    "name": "Tool Usage Analytics",
-    "description": "Track usage stats of tools",
-    "icon": "Settings",
-    "category": "admin"
-  },
-  {
-    "id": "drag_drop_input",
-    "name": "Drag & Drop Input",
-    "description": "Allow file upload via drag & drop",
-    "icon": "Monitor",
-    "category": "ux"
-  },
-  {
-    "id": "copy_to_clipboard",
-    "name": "Copy to Clipboard",
-    "description": "Quickly copy results to clipboard",
-    "icon": "Monitor",
-    "category": "ux"
-  },
-  {
-    "id": "live_preview",
-    "name": "Live Preview",
-    "description": "Instant preview of output as you type",
-    "icon": "Monitor",
-    "category": "ux"
   }
 ]

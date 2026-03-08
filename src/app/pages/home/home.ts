@@ -49,9 +49,7 @@ export class HomeComponent {
     console.log('category', category);
   }
 
-  handleToolClicked(tt: Tool) {
-    console.log(tt)
-    this.router.navigate(['feature']);
-
+  handleToolClicked(tool: Tool) {
+    this.router.navigate([`feature/${tool.id}`]);
   }
 }
