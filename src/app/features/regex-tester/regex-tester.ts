@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './regex-tester.html',
   styleUrl: './regex-tester.scss',
 })
-export class RegexTester {
-
-}
+export class RegexTester {}

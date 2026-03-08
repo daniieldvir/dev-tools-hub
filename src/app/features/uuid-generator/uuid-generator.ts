@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './uuid-generator.html',
   styleUrl: './uuid-generator.scss',
 })
-export class UuidGenerator {
-
-}
+export class UuidGenerator {}

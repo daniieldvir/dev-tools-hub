@@ -1,1 +1,26 @@
-<p>tool works!</p>
+@if (tool(); as tool) {
+<div class="tool-card" [class]="'category-' + tool.category" (click)="handleClick()">
+  <div class="header">
+    <div class="icon-wrapper">
+      <lucide-icon [name]="tool.icon || 'wrench'" [size]="24" aria-hidden="true" />
+    </div>
+    <div class="category-badge">
+      <span class="category-dot"></span>
+      {{ tool.category }}
+    </div>
+  </div>
+
+  <div class="card-content">
+    <h3 class="tool-title">{{ tool.name }}</h3>
+    <p class="tool-description">{{ tool.description }}</p>
+  </div>
+</div>
+} @else {
+<div class="tool-card skeleton">
+  <div class="card-inner">
+    <div class="card-header skeleton-header"></div>
+    <div class="card-content skeleton-content"></div>
+    <div class="card-footer skeleton-footer"></div>
+  </div>
+</div>
+}

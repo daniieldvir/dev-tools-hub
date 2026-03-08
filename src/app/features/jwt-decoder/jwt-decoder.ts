@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './jwt-decoder.html',
   styleUrl: './jwt-decoder.scss',
 })
-export class JwtDecoder {
-
-}
+export class JwtDecoder {}

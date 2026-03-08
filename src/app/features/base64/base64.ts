@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './base64.html',
   styleUrl: './base64.scss',
 })
-export class Base64 {
-
-}
+export class Base64 {}

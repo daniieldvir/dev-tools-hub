@@ -1,10 +1,18 @@
-    <header>
-        <h1>DevTools Hub</h1>
-        <nav>
-            <ul>
-                <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a>
-                <a routerLink="/tools">Tools</a>
-                <a routerLink="/about">About</a>
-        </ul>
-      </nav>
-  </header>
+<header class="glass-header">
+  <div class="header-container">
+    <h1 class="brand-title">DevTools Hub</h1>
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">
+            <lucide-icon name="home" class="nav-icon" [size]="18" />
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

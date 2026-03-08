@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './json-formatter.html',
   styleUrl: './json-formatter.scss',
 })
-export class JsonFormatter {
-
-}
+export class JsonFormatter {}

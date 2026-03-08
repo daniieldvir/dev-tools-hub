@@ -1,0 +1,46 @@
+:host {
+    display: inline-block;
+
+    .filter-chip {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: var(--surface-card);
+        border: 1px solid var(--border-color);
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        font-weight: 500;
+        box-shadow: var(--shadow-sm);
+        width: 105px;
+        justify-content: center;
+
+        &:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        &.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        /* Dark Mode Adjustments */
+        @media (prefers-color-scheme: dark) {
+            &.active {
+                color: var(--bg-color);
+            }
+        }
+    }
+}
