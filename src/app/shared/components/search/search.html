@@ -1,12 +1,15 @@
 <div class="search-container fade-in">
   <div class="input-wrapper">
-    <lucide-icon name="search" class="icon" [size]="20" />
+    <lucide-icon name="search" class="icon" [size]="20"></lucide-icon>
     <input
+      #searchInput
       type="text"
       class="search-input"
       placeholder="What tool do you need today?"
       (input)="onSearchTermChanged($event)"
     />
-    <div class="search-shortcut"><span>⌘</span><span>K</span></div>
+    @if (hasValue()) {
+      <lucide-icon name="x" class="x-icon" [size]="18" (click)="onClearSearch()" />
+    }
   </div>
 </div>

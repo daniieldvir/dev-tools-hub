@@ -12,6 +12,8 @@
   <div class="tools-container">
     @for (tool of filteredTools(); track tool.id) {
       <app-tool-card [tool]="tool" (toolClicked)="handleToolClicked($event)" />
+    }@empty {
+      <p class="no-tools-found">No tools found</p>
     }
   </div>
 </div>

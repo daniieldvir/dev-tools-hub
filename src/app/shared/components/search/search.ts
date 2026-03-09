@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, ElementRef, output, signal, viewChild } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
@@ -8,14 +8,23 @@ import { LucideAngularModule } from 'lucide-angular';
   styleUrl: './search.scss',
 })
 export class Search {
-  public searchTerm: string = '';
   public searchTermChanged = output<string>();
+  public hasValue = signal(false);
 
-  // TODO: Add search shortcut
+  private searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
   onSearchTermChanged(event: Event) {
-    const searchTerm = (event.target as HTMLInputElement).value;
-    this.searchTerm = searchTerm;
-    this.searchTermChanged.emit(this.searchTerm);
+    const value = (event.target as HTMLInputElement).value;
+    this.hasValue.set(value.length > 0);
+    this.searchTermChanged.emit(value);
+  }
+
+  onClearSearch() {
+    const input = this.searchInput()?.nativeElement;
+    if (input) {
+      input.value = '';
+    }
+    this.hasValue.set(false);
+    this.searchTermChanged.emit('');
   }
 }
