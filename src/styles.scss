@@ -1,70 +1,33 @@
-/* CSS Variables & Theming */
 :root {
-  /* Light Mode Palette */
-  --bg-color: #f8fafc;
-  --surface-card: #ffffff;
-  --surface-hover: #f1f5f9;
-  --border-color: #e2e8f0;
+  --bg-color: #0f172a;
+  --surface-card: #1e293b;
+  --surface-hover: #334155;
+  --border-color: #334155;
 
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
 
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
-  --accent-color: #38bdf8;
+  --primary-color: #3b82f6;
+  --primary-hover: #60a5fa;
+  --accent-color: #7dd3fc;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
 
-  --error-color: #ef4444;
-  --error-color-bg: #ef44441a;
+  --error-color: #f87171;
+  --error-color-bg: #f871711a;
 
   /* Supplemental Warm / Regex Palette */
-  --regex-primary: #ff9fa0;
-  --regex-hover: #ff7f80;
+  --regex-primary: #ffc796;
+  --regex-hover: #ff9fa0;
   --regex-accent: #ffc796;
-  --regex-gradient: linear-gradient(135deg, var(--regex-accent) 0%, var(--regex-primary) 100%);
-  --regex-shadow: 0 4px 12px rgba(255, 159, 160, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode Palette */
-    --bg-color: #0f172a;
-    --surface-card: #1e293b;
-    --surface-hover: #334155;
-    --border-color: #334155;
-
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
-
-    --primary-color: #3b82f6;
-    --primary-hover: #60a5fa;
-    --accent-color: #7dd3fc;
-
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-
-    --glass-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-
-    --error-color: #f87171;
-    --error-color-bg: #f871711a;
-
-    /* Supplemental Warm / Regex Palette */
-    --regex-primary: #ffc796;
-    --regex-hover: #ff9fa0;
-    --regex-accent: #ffc796;
-    --regex-gradient: linear-gradient(135deg, var(--regex-accent) 0%, var(--regex-hover) 100%);
-    --regex-shadow: 0 4px 12px rgba(255, 199, 150, 0.3);
-  }
+  --regex-gradient: linear-gradient(135deg, var(--regex-accent) 0%, var(--regex-hover) 100%);
+  --regex-shadow: 0 4px 12px rgba(255, 199, 150, 0.3);
 }
 
 /* Reset & Base Styles */
