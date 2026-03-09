@@ -45,6 +45,11 @@ export class HomeComponent {
   }
 
   handleToolClicked(tool: Tool) {
+    if (tool.id === 'ai_code_reviewer') {
+      window.open('https://daniieldvir.github.io/ai-frontend-code-reviewer/', '_blank');
+      return;
+    }
+
     this.router.navigate([`feature/${tool.id}`]);
   }
 }
