@@ -1,16 +1,25 @@
 <div class="timestamp-converter-container">
   <h2>Timestamp Converter</h2>
   <div class="timestamp-converter-content">
-     <input type="number" [value]="timestamp()" placeholder="Enter Unix timestamp" (input)="timestamp.set($any($event.target).value)">
-   
-     <div class="output-container">
-        @if (readableDate()) {
-            <input type="text" [value]="readableDate()"  disabled >
+    <input
+      type="number"
+      [value]="timestamp()"
+      placeholder="Enter Unix timestamp"
+      (input)="timestamp.set($any($event.target).value)"
+    />
 
-          } @else {
-            <p class="description ">Enter a timestamp above and click Convert</p>
-          }
-     </div>
+    <div class="output-container">
+      @if (readableDate()) {
+        <input type="text" [value]="readableDate()" disabled />
+      } @else {
+        <p class="description">Enter a timestamp above and click Convert</p>
+      }
+    </div>
   </div>
-  <app-button class="button" [label]="'Convert'" [disabled]="!timestamp()" (click)="convertTimestamp()" />
+  <app-button
+    class="button"
+    [label]="'Convert'"
+    [disabled]="!timestamp()"
+    (click)="convertTimestamp()"
+  />
 </div>
