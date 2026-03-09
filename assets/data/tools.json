@@ -54,5 +54,12 @@
     "description": "Convert color formats (HEX, RGB, HSL)",
     "icon": "Globe",
     "category": "web"
+  },
+  {
+    "id": "ai_code_reviewer",
+    "name": "AI Code Reviewer",
+    "description": "Review code with AI (opens in a new tab)",
+    "icon": "Code",
+    "category": "developer"
   }
 ]
