@@ -31,7 +31,7 @@
     "id": "regex_tester",
     "name": "Regex Tester",
     "description": "Create and test regular expressions",
-    "icon": "Terminal",
+    "icon": "Code",
     "category": "developer"
   },
   {
