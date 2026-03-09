@@ -34,10 +34,6 @@ export class HomeComponent {
     });
   });
 
-  ngOnInit() {
-    console.log('tools', this.tools);
-  }
-
   onSearchTermChanged(searchTerm: string) {
     this.searchTerm.set(searchTerm);
     console.log('searchTerm', searchTerm);
