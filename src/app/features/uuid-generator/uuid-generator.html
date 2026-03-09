@@ -1,1 +1,11 @@
-<p>uuid-generator works!</p>
+<div class="uuid-generator-container">
+  <h2>UUID Generator</h2>
+
+  <div class="uuid-generator-content">
+    <div class="output-container">
+      <input type="text" [value]="uuid()" placeholder="No UUID generated yet" disabled />
+      <lucide-icon class="copy-icon" name="copy" [size]="18" (click)="copyToClipboard()" />
+    </div>
+  </div>
+  <app-button class="button" [label]="'Generate UUID'" (click)="generate()" />
+</div>

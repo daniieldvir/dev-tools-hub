@@ -1,0 +1,23 @@
+@import '../../styles/_features.scss';
+:host {
+  display: block;
+  height: 100%;
+
+  .uuid-generator-container {
+    @include feature-container;
+
+    input {
+      @include input-style;
+    }
+
+    .output-container {
+      @include output-container;
+    }
+
+    .button {
+      width: 150px;
+      margin-top: 1.5rem;
+      align-self: self-end;
+    }
+  }
+}
