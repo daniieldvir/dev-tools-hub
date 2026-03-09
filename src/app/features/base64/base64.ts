@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { LucideAngularModule } from 'lucide-angular';
 import { Button } from '../../shared/components/button/button';
+import { Textarea } from '../../shared/components/textarea/textarea';
 @Component({
   selector: 'app-base64',
-  imports: [FormsModule, Button, LucideAngularModule],
+  imports: [Button, Textarea],
   templateUrl: './base64.html',
   styleUrl: './base64.scss',
 })
@@ -13,9 +12,8 @@ export class Base64 {
   result = signal('');
   error = signal('');
 
-  handleInputChange(event: Event) {
-    const target = event.target as HTMLTextAreaElement;
-    this.text.set(target.value);
+  handleInputChange(value: string) {
+    this.text.set(value);
     this.result.set('');
     this.error.set('');
   }

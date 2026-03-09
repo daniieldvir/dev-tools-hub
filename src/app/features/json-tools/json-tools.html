@@ -2,31 +2,21 @@
   <h2>JSON Tools</h2>
 
   <div class="json-tools-content">
-    <textarea
-      #input
-      placeholder="Enter JSON here..."
-      class="panel-style"
-      (input)="handleInputChange(input.value)"
-    ></textarea>
+    <app-textarea
+      class="input-textarea"
+      [value]="inputJson()"
+      [placeholder]="'Enter JSON here...'"
+      (handleInputChange)="onInputChange($event)"
+    />
 
-    <div class="output-container">
-      @if (outputText()) {
-        <textarea
-          placeholder="Output"
-          class="panel-style"
-          [value]="outputText()"
-          disabled
-        ></textarea>
-
-        <lucide-icon class="copy-icon" name="copy" [size]="18" (click)="copyToClipboard()" />
-      } @else {
-        @if (errorMessage()) {
-          <p class="description error">{{ errorMessage() }}</p>
-        } @else {
-          <p class="description">No output yet</p>
-        }
-      }
-    </div>
+    <app-textarea
+      class="output-textarea"
+      [value]="outputText()"
+      [placeholder]="'Output'"
+      [isOutputContainer]="true"
+      [description]="'No output yet'"
+      [errorMessage]="errorMessage()"
+    />
   </div>
 
   <div class="json-tools-buttons">

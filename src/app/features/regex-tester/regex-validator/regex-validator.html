@@ -31,12 +31,12 @@
 
     <div class="input-group">
       <label>Test String</label>
-      <textarea
-        [ngModel]="testString()"
-        (ngModelChange)="testString.set($event)"
-        placeholder="Enter text to test against..."
-        rows="6"
-      ></textarea>
+      <app-textarea
+        class="input-textarea"
+        [value]="testString() ?? ''"
+        [placeholder]="'Enter text to test against...'"
+        (handleInputChange)="testString.set($event)"
+      />
     </div>
 
     <app-button

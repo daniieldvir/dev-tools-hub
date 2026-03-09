@@ -42,8 +42,10 @@
     display: block;
   }
 
-  textarea {
-    resize: none;
+  .input-textarea {
+    --textarea-width: 100%;
+    --textarea-height: 100%;
+    --textarea-min-height: 120px;
   }
 
   .matches-section {

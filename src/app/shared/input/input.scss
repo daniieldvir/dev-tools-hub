@@ -1,0 +1,24 @@
+@import '../../styles/features.scss';
+:host {
+  display: block;
+
+  input {
+    @include input-style;
+    width: var(--input-width);
+    height: var(--input-height);
+    min-height: var(--input-min-height);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+  .output-container {
+    @include output-container;
+  }
+}

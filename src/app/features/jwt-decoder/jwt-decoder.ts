@@ -1,13 +1,12 @@
 import { JsonPipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { LucideAngularModule } from 'lucide-angular';
 import { JwtDecoderService } from '../../core/core/services/jwt-decoder-service';
 import { Button } from '../../shared/components/button/button';
+import { Textarea } from '../../shared/components/textarea/textarea';
 
 @Component({
   selector: 'app-jwt-decoder',
-  imports: [FormsModule, JsonPipe, Button, LucideAngularModule],
+  imports: [Button, Textarea, JsonPipe],
   templateUrl: './jwt-decoder.html',
   styleUrl: './jwt-decoder.scss',
 })
@@ -22,7 +21,8 @@ export class JwtDecoder {
     console.log(this.error());
   }
 
-  handleTokenChange() {
+  handleTokenChange(value: string) {
+    this.token.set(value);
     this.error.set(null);
     this.payload.set(null);
   }

@@ -1,0 +1,18 @@
+@if (!isOutputContainer()) {
+<input
+  [class.input-number]="type() === 'number'"
+  [type]="type()"
+  [value]="value()"
+  [placeholder]="placeholder()"
+  (input)="onInputChange($event)"
+/>
+}
+@if (isOutputContainer()) {
+  <div class="output-container">
+    @if (value()) {
+      <input [value]="value()" disabled />
+    } @else {
+      <p class="description">{{ description() }}</p>
+    }
+  </div>
+}

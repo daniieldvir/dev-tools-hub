@@ -5,12 +5,12 @@
     <div class="input-group">
       <label>Describe what you want to match</label>
       <div class="generator-input-row">
-        <input
-          type="text"
-          [ngModel]="generatorInput()"
-          (ngModelChange)="generatorInput.set($event)"
-          (keydown.enter)="addPart(generatorInput())"
-          placeholder='e.g. "digit 3 times", "letter", "email", "start"'
+      
+        <app-input
+          class="input-text"
+          [value]="generatorInput()"
+          [placeholder]="'e.g. digit 3 times, letter, email, start'"
+          (handleInputChange)="generatorInput.set($event)"
         />
         <app-button
           [label]="'Add'"

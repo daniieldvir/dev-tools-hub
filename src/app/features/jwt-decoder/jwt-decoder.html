@@ -2,25 +2,20 @@
   <h2>JWT Viewer</h2>
 
   <div class="jwt-decoder-content">
-    <textarea
-      type="text"
-      [(ngModel)]="token"
-      placeholder="Paste JWT here"
-      (ngModelChange)="handleTokenChange()"
-    ></textarea>
+    <app-textarea
+      class="input-textarea"
+      [value]="token()"
+      [placeholder]="'Paste JWT here'"
+      (handleInputChange)="handleTokenChange($event)"
+    />
 
-    <div class="output-container">
-      @if (payload()) {
-        <textarea [value]="payload() | json" disabled></textarea>
-        <lucide-icon class="copy-icon" name="copy" [size]="18" (click)="copyToClipboard()" />
-      } @else {
-        @if (error()) {
-          <p class="description error">{{ error() }}</p>
-        } @else {
-          <p class="description">No token decoded yet</p>
-        }
-      }
-    </div>
+    <app-textarea
+      class="output-textarea"
+      [value]="payload() ? (payload() | json) : ''"
+      [description]="'No token decoded yet'"
+      [isOutputContainer]="true"
+      [errorMessage]="error() ?? ''"
+    />
   </div>
   <app-button class="button" (click)="decodeToken()" [label]="'Decode'" [disabled]="!token()" />
 </div>

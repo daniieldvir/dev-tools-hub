@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Button } from '../../../shared/components/button/button';
+import { Textarea } from '../../../shared/components/textarea/textarea';
 import {
   createSafeRegex,
   getRegexMatches,
@@ -12,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-regex-validator',
-  imports: [FormsModule, Button, JsonPipe],
+  imports: [FormsModule, Button, JsonPipe, Textarea],
   templateUrl: './regex-validator.html',
   styleUrl: './regex-validator.scss',
 })

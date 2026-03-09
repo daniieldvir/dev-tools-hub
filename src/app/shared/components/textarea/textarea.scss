@@ -1,0 +1,24 @@
+@import '../../../styles/features.scss';
+
+:host {
+  display: block;
+  height: 100%;
+
+  textarea {
+    @include input-style;
+    resize: none;
+    height: var(--textarea-height);
+    width: var(--textarea-width);
+    min-height: var(--textarea-min-height);
+    resize: var(--textarea-resize);
+  }
+
+  .output-container {
+    @include output-container;
+    height: 100%;
+
+    textarea {
+      height: 100%;
+    }
+  }
+}

@@ -14,22 +14,11 @@
       height: 100%;
       max-width: 1600px;
 
-      input {
-        @include input-style;
-
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-
-        &[type='number'] {
-          -moz-appearance: textfield;
-        }
-      }
-
-      .output-container {
-        @include output-container;
+      .input-number,
+      .output-text {
+        --input-width: 100%;
+        --input-height: 100%;
+        --input-min-height: 50px;
       }
     }
 

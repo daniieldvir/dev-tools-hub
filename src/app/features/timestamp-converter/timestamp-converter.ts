@@ -1,17 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { Button } from '../../shared/components/button/button';
 import { FormsModule } from '@angular/forms';
-import { Button as ButtonComponent } from '../../shared/components/button/button';
+import { Button } from '../../shared/components/button/button';
+import { Input } from '../../shared/input/input';
 
 @Component({
   selector: 'app-timestamp-converter',
-  imports: [Button, FormsModule, ButtonComponent],
+  imports: [Button, FormsModule, Input],
   templateUrl: './timestamp-converter.html',
   styleUrl: './timestamp-converter.scss',
 })
 export class TimestampConverter {
   timestamp = signal<number | null>(null);
   readableDate = signal<string>('');
+
+  onTimestampChange(value: string) {
+    this.timestamp.set(value ? Number(value) : null);
+  }
 
   convertTimestamp() {
     if (!this.timestamp()) {

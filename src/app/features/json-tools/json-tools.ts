@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { LucideAngularModule } from 'lucide-angular';
 import { Button } from '../../shared/components/button/button';
+import { Textarea } from '../../shared/components/textarea/textarea';
 
 @Component({
   selector: 'app-json-tools',
-  imports: [Button, LucideAngularModule],
+  imports: [Button, Textarea],
   templateUrl: './json-tools.html',
   styleUrl: './json-tools.scss',
 })
@@ -13,9 +13,10 @@ export class JsonTools {
   outputText = signal<string>('');
   errorMessage = signal<string>('');
 
-  handleInputChange(value: string) {
+  onInputChange(value: string) {
     this.inputJson.set(value);
     this.outputText.set('');
+    this.errorMessage.set('');
   }
 
   formatJson() {

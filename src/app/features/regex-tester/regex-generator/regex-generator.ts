@@ -9,6 +9,7 @@ import {
   buildValidRegex,
   copyToClipboard,
 } from '../../../shared/utils/regex.util';
+import { Input } from '../../../shared/input/input';
 
 type RegexPart = {
   label: string;
@@ -17,7 +18,7 @@ type RegexPart = {
 
 @Component({
   selector: 'app-regex-generator',
-  imports: [FormsModule, Button, Chip, LucideAngularModule],
+  imports: [FormsModule, Button, Chip, LucideAngularModule, Input],
   templateUrl: './regex-generator.html',
   styleUrl: './regex-generator.scss',
 })

@@ -1,0 +1,21 @@
+@if (!isOutputContainer()) {
+  <textarea
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="onInputChange($event)"
+  ></textarea>
+}
+@if (isOutputContainer()) {
+  <div class="output-container">
+    @if (value()) {
+      <textarea class="panel-style" [value]="value()" disabled></textarea>
+      <lucide-icon class="copy-icon" name="copy" [size]="18" (click)="copyToClipboard()" />
+    } @else {
+      @if (errorMessage()) {
+        <p class="description error">{{ errorMessage() }}</p>
+      } @else {
+        <p class="description">{{ description() }}</p>
+      }
+    }
+  </div>
+}
