@@ -1,0 +1,42 @@
+@import '../../styles/features.scss';
+
+:host {
+  display: block;
+  height: 100%;
+
+  .timestamp-converter-container {
+    @include feature-container;
+
+    .timestamp-converter-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      height: 100%;
+      max-width: 1600px;
+
+      input {
+        @include input-style;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &[type='number'] {
+          -moz-appearance: textfield;
+        }
+      }
+
+      .output-container {
+        @include output-container;
+      }
+    }
+
+    .button {
+      width: 150px;
+      margin-top: 1.5rem;
+      align-self: self-end;
+    }
+  }
+}
