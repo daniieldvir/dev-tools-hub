@@ -1,12 +1,11 @@
-import { Component, computed, input, output, signal, model } from '@angular/core';
-import { LucideAngularModule } from 'lucide-angular';
+import { Component, computed, input, model } from '@angular/core';
+import { Chip } from '../chip/chip';
 
 @Component({
   selector: 'app-filter-chip',
-  standalone: true,
-  imports: [LucideAngularModule],
+  imports: [Chip],
   templateUrl: './filter-chip.html',
-  styleUrls: ['./filter-chip.scss'],
+  styleUrl: './filter-chip.scss',
 })
 export class FilterChip {
   public category = input<string>();
@@ -17,12 +16,14 @@ export class FilterChip {
     return cat ? (cat === 'all' ? 'All' : cat[0].toUpperCase() + cat.slice(1)) : '';
   });
 
-  public handleChipClick() {
-    if (!this.category()) return;
-    this.activeCategory.set(this.category()!);
-  }
-
-  public isActive() {
+  public isActive = computed(() => {
     return this.activeCategory() === this.category();
+  });
+
+  public handleChipClick() {
+    const cat = this.category();
+    if (!cat) return;
+
+    this.activeCategory.set(cat);
   }
 }

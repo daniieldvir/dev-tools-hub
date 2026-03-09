@@ -2,13 +2,16 @@
   <app-search (searchTermChanged)="onSearchTermChanged($event)" />
   <div class="filters">
     @for (category of categories; track category) {
-    <app-filter-chip [category]="category" [(activeCategory)]="activeChip"
-      (activeCategoryChange)="onFilterChanged($event)" />
+      <app-filter-chip
+        [category]="category"
+        [(activeCategory)]="activeChip"
+        (activeCategoryChange)="onFilterChanged($event)"
+      />
     }
   </div>
   <div class="tools-container">
     @for (tool of filteredTools(); track tool.id) {
-    <app-tool-card [tool]="tool" (toolClicked)="handleToolClicked($event)" />
+      <app-tool-card [tool]="tool" (toolClicked)="handleToolClicked($event)" />
     }
   </div>
 </div>

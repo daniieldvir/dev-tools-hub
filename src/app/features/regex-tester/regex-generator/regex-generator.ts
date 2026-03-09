@@ -1,7 +1,14 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { LucideAngularModule } from 'lucide-angular';
+import { TOKEN_CATEGORIES } from '../../../constants/token.const';
 import { Button } from '../../../shared/components/button/button';
-import { addPartFromInputSequenceSingle } from '../../../shared/utils/regex.util';
+import { Chip } from '../../../shared/components/chip/chip';
+import {
+  addPartFromInputSequenceSingle,
+  buildValidRegex,
+  copyToClipboard,
+} from '../../../shared/utils/regex.util';
 
 type RegexPart = {
   label: string;
@@ -10,11 +17,13 @@ type RegexPart = {
 
 @Component({
   selector: 'app-regex-generator',
-  imports: [FormsModule, Button],
+  imports: [FormsModule, Button, Chip, LucideAngularModule],
   templateUrl: './regex-generator.html',
   styleUrl: './regex-generator.scss',
 })
 export class RegexGenerator {
+  TOKEN_CATEGORIES = TOKEN_CATEGORIES;
+
   parts = signal<RegexPart[]>([]);
   generatorInput = signal('');
 
@@ -22,13 +31,8 @@ export class RegexGenerator {
     const pattern = this.parts()
       .map((p) => p.value)
       .join('');
-    if (!pattern) return '';
-    try {
-      new RegExp(pattern);
-      return pattern;
-    } catch {
-      return null;
-    }
+
+    return buildValidRegex(pattern);
   });
 
   addPart(text: string) {
@@ -37,10 +41,8 @@ export class RegexGenerator {
     if (part) {
       this.parts.update((prev) => {
         const exists = prev.some((p) => p.label === part.label && p.value === part.value);
-        if (!exists) {
-          return [...prev, part];
-        }
-        return prev;
+
+        return exists ? prev : [...prev, part];
       });
     }
   }
@@ -54,9 +56,11 @@ export class RegexGenerator {
   }
 
   copyBuiltRegex() {
-    const regex = this.builtRegex();
-    if (regex) {
-      navigator.clipboard.writeText(regex);
-    }
+    copyToClipboard(this.builtRegex() ?? '');
+  }
+
+  ngOnDestroy() {
+    this.parts.set([]);
+    this.generatorInput.set('');
   }
 }

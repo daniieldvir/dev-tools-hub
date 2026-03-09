@@ -26,7 +26,8 @@ import {
   Globe,
   Terminal,
   Shield,
-  Layers
+  Layers,
+  Copy,
 } from 'lucide-angular';
 import { routes } from './app.routes';
 
@@ -36,10 +37,28 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom(
       LucideAngularModule.pick({
-        Search, Home,
-        LayoutDashboard, Wrench, ArrowRight, Braces, KeyRound, FileText,
-        Shield, Terminal, Hash, Clock, Globe, Scissors,
-        Settings, Upload, Code, Clipboard, Monitor, Database, Layers
+        Search,
+        Home,
+        LayoutDashboard,
+        Wrench,
+        ArrowRight,
+        Braces,
+        KeyRound,
+        FileText,
+        Shield,
+        Terminal,
+        Hash,
+        Clock,
+        Globe,
+        Scissors,
+        Settings,
+        Upload,
+        Code,
+        Clipboard,
+        Monitor,
+        Database,
+        Layers,
+        Copy,
       }),
     ),
   ],

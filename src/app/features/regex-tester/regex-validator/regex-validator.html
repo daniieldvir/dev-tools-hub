@@ -1,64 +1,67 @@
 <div class="tab-content">
-    <h2>Regex Validator</h2>
-    <div class="validator-layout">
-      <div class="input-group">
-        <label>Regex Pattern</label>
-        <div class="regex-input-row">
-          <span class="regex-delimiter">/</span>
-          <input
-            type="text"
-            [ngModel]="regexInput()"
-            (ngModelChange)="regexInput.set($event)"
-            placeholder="Enter regex pattern..."
-            class="regex-pattern-input" />
-          <span class="regex-delimiter">/</span>
-          <div class="flags">
-            @for (flag of ['g', 'i', 'm', 's']; track flag) {
-              <button
-                class="flag-btn"
-                [class.active]="hasFlag(flag)"
-                (click)="toggleFlag(flag)">
-                {{ flag }}
-              </button>
-            }
-          </div>
+  <h2>Regex Validator</h2>
+  <div class="validator-layout">
+    <div class="input-group">
+      <label>Regex Pattern</label>
+      <div class="regex-input-row">
+        <span class="regex-delimiter">/</span>
+        <input
+          type="text"
+          [ngModel]="regexInput()"
+          (ngModelChange)="regexInput.set($event)"
+          placeholder="Enter regex pattern..."
+          class="regex-pattern-input"
+        />
+        <span class="regex-delimiter">/</span>
+        <div class="flags">
+          @for (flag of ['g', 'i', 'm', 's']; track flag) {
+            <button class="flag-btn" [class.active]="hasFlag(flag)" (click)="toggleFlag(flag)">
+              {{ flag }}
+            </button>
+          }
         </div>
-
-        @if (validationResult() === true) {
-          <div class="status valid">Valid regex</div>
-        } @else if (validationResult() === false) {
-          <div class="status invalid">{{ validationError() }}</div>
-        }
       </div>
 
-      <div class="input-group">
-        <label>Test String</label>
-        <textarea
-          [ngModel]="testString()"
-          (ngModelChange)="testString.set($event)"
-          placeholder="Enter text to test against..."
-          rows="6">
-        </textarea>
-      </div>
-
-      <app-button class="button" [label]="'Test'" (click)="validateAndTest()"></app-button>
-
-      @if (matchCount() > 0) {
-        <div class="matches-section">
-          <div class="match-count">{{ matchCount() }} match(es) found</div>
-          <div class="highlighted-result" [innerHTML]="highlightedTestString()"></div>
-          <div class="match-list">
-            <label>Matches:</label>
-            @for (match of matchResults(); track $index) {
-              <div class="match-item">
-                <span class="match-index">#{{ $index + 1 }}</span>
-                <code>{{ match }}</code>
-              </div>
-            }
-          </div>
-        </div>
-      } @else if (validationResult() === true && testString()) {
-        <div class="no-matches">No matches found</div>
+      @if (validationResult() === true) {
+        <div class="status valid">Valid regex</div>
+      } @else if (validationResult() === false) {
+        <div class="status invalid">{{ validationError() }}</div>
       }
     </div>
+
+    <div class="input-group">
+      <label>Test String</label>
+      <textarea
+        [ngModel]="testString()"
+        (ngModelChange)="testString.set($event)"
+        placeholder="Enter text to test against..."
+        rows="6"
+      ></textarea>
+    </div>
+
+    <app-button
+      class="button"
+      [label]="'Test'"
+      (click)="validateAndTest()"
+      [disabled]="!regexInput() || !testString()"
+    />
+
+    @if (matchCount() > 0) {
+      <div class="matches-section">
+        <div class="match-count">{{ matchCount() }} match(es) found</div>
+        <div class="highlighted-result" [innerHTML]="highlightedTestString()"></div>
+        <div class="match-list">
+          <label>Matches:</label>
+          @for (match of matchResults(); track $index) {
+            <div class="match-item">
+              <span class="match-index">#{{ $index + 1 }}</span>
+              <code>{{ match }}</code>
+            </div>
+          }
+        </div>
+      </div>
+    } @else if (validationResult() === true && testString()) {
+      <div class="error-message">No matches found</div>
+    }
   </div>
+</div>

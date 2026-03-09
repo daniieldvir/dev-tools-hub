@@ -10,8 +10,5 @@ export class ToolsServiceTs {
     ...tool,
   })) as Tool[];
 
-  public categories: string[] = [
-    'all',
-    ...Array.from(new Set(this.tools.map((t) => t.category))),
-  ];
+  public categories: string[] = ['all', ...Array.from(new Set(this.tools.map((t) => t.category)))];
 }

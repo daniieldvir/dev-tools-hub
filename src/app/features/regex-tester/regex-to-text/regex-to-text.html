@@ -12,12 +12,18 @@
           (ngModelChange)="regexToParseInput.set($event)"
           (keydown.enter)="parseRegexToText()"
           placeholder="Enter regex to explain..."
-          class="regex-pattern-input" />
+          class="regex-pattern-input"
+        />
         <span class="regex-delimiter">/</span>
       </div>
     </div>
 
-    <app-button class="button" [label]="'Explain'" (click)="parseRegexToText()"></app-button>
+    <app-button
+      class="button"
+      [label]="'Explain'"
+      (click)="parseRegexToText()"
+      [disabled]="!regexToParseInput()"
+    />
 
     @if (parseError()) {
       <div class="status invalid">{{ parseError() }}</div>

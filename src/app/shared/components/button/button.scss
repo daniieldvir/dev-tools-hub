@@ -14,4 +14,14 @@
   border: none;
   cursor: pointer;
   width: 100%;
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.6;
+    cursor: auto;
+    background: var(--surface-hover);
+    color: var(--text-muted);
+    box-shadow: none;
+    pointer-events: none;
+  }
 }

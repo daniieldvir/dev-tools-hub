@@ -1,0 +1,36 @@
+:host {
+  display: inline-block;
+
+  .chip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a1a1aa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 60px;
+
+    &:hover {
+      background: rgba(255, 199, 150, 0.1);
+      border-color: rgba(255, 199, 150, 0.4);
+      color: #ffc796;
+      box-shadow: 0 0 10px rgba(255, 199, 150, 0.2);
+      transform: translateY(-1px);
+    }
+
+    &.active {
+      color: #ffc796;
+      border-color: rgba(255, 199, 150, 0.4);
+      box-shadow: 0 0 10px rgba(255, 199, 150, 0.2);
+      transform: translateY(-1px);
+    }
+  }
+}

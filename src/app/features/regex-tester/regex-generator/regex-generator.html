@@ -10,16 +10,22 @@
           [ngModel]="generatorInput()"
           (ngModelChange)="generatorInput.set($event)"
           (keydown.enter)="addPart(generatorInput())"
-          placeholder='e.g. "digit 3 times", "letter", "email", "start"' />
-        <app-button [label]="'Add'" (click)="addPart(generatorInput())"></app-button>
+          placeholder='e.g. "digit 3 times", "letter", "email", "start"'
+        />
+        <app-button
+          [label]="'Add'"
+          (click)="addPart(generatorInput())"
+          [disabled]="!generatorInput()"
+        />
       </div>
     </div>
 
     <div class="available-tokens">
       <label>Available tokens:</label>
+
       <div class="token-chips">
-        @for (token of ['digit', 'letter', 'word', 'whitespace', 'any', 'start', 'end', 'email', 'url', 'phone', 'ip', 'date', 'dot', 'optional']; track token) {
-          <button class="token-chip" (click)="addPart(token)">{{ token }}</button>
+        @for (token of TOKEN_CATEGORIES; track token) {
+          <app-chip [label]="token" (chipClick)="addPart(token)"> </app-chip>
         }
       </div>
     </div>
@@ -44,7 +50,7 @@
         @if (builtRegex(); as regex) {
           <div class="built-regex">
             <code>/{{ regex }}/</code>
-            <button class="copy-btn" (click)="copyBuiltRegex()">Copy</button>
+            <lucide-icon class="copy-icon" name="copy" [size]="18" (click)="copyBuiltRegex()" />
           </div>
         } @else {
           <div class="status invalid">Invalid combination</div>

@@ -5,4 +5,3 @@ export interface Tool {
   icon: string;
   category: string;
 }
-

@@ -1,14 +1,15 @@
+import { JsonPipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToolsServiceTs } from '../../core/core/services/tools.service.ts';
 import { Tool } from '../../core/models/tool.model';
+import { FilterChip } from '../../shared/components/filter-chip/filter-chip.js';
 import { Search } from '../../shared/components/search/search';
 import { ToolCardComponent } from '../../shared/components/tool-card/tool-card';
-import { FilterChip } from '../../shared/components/filter-chip/filter-chip.js';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [Search, ToolCardComponent, FilterChip],
+  imports: [Search, ToolCardComponent, FilterChip, JsonPipe],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -19,7 +20,6 @@ export class HomeComponent {
   public tools: Tool[] = this.toolsService.tools;
   public categories: string[] = this.toolsService.categories;
 
-
   public activeChip = signal<string>('all');
   public searchTerm = signal<string>('');
 
@@ -27,25 +27,24 @@ export class HomeComponent {
     const term = this.searchTerm().toLowerCase();
     const category = this.activeChip();
 
-    return this.tools.filter(tool => {
+    return this.tools.filter((tool) => {
       const matchesCategory = category === 'all' || tool.category === category;
       const matchesSearch = tool.name.toLowerCase().includes(term);
       return matchesCategory && matchesSearch;
     });
   });
 
-
   ngOnInit() {
     console.log('tools', this.tools);
   }
 
   onSearchTermChanged(searchTerm: string) {
-    this.searchTerm.set(searchTerm)
+    this.searchTerm.set(searchTerm);
     console.log('searchTerm', searchTerm);
   }
 
   onFilterChanged(category: string) {
-    this.activeChip.set(category)
+    this.activeChip.set(category);
     console.log('category', category);
   }
 

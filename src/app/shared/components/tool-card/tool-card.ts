@@ -10,12 +10,9 @@ import { Tool } from '../../../core/models/tool.model';
 })
 export class ToolCardComponent {
   public tool = input<Tool>();
-  public toolClicked = output<Tool>()
-
+  public toolClicked = output<Tool>();
 
   public handleClick() {
-    this.toolClicked.emit(this.tool()!)
-
-
+    this.toolClicked.emit(this.tool()!);
   }
 }

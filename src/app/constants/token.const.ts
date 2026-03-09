@@ -1,0 +1,16 @@
+export const TOKEN_CATEGORIES = [
+  'digit',
+  'letter',
+  'word',
+  'whitespace',
+  'any',
+  'start',
+  'end',
+  'email',
+  'url',
+  'phone',
+  'ip',
+  'date',
+  'dot',
+  'optional',
+];

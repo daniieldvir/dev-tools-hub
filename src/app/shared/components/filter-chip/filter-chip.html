@@ -1,3 +1,1 @@
-<div class="filter-chip" (click)="handleChipClick()" [class.active]="isActive()">
-    <span>{{ label() }}</span>
-</div>
+<app-chip [label]="label()" [isActive]="isActive()" (chipClick)="handleChipClick()" />

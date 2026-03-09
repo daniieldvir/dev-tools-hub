@@ -1,15 +1,17 @@
 import { Component, signal } from '@angular/core';
+import { LucideAngularModule } from 'lucide-angular';
 import { Button } from '../../shared/components/button/button';
 
 @Component({
   selector: 'app-json-tools',
-  imports: [Button],
+  imports: [Button, LucideAngularModule],
   templateUrl: './json-tools.html',
   styleUrl: './json-tools.scss',
 })
 export class JsonTools {
   inputJson = signal<string>('');
   outputText = signal<string>('');
+  errorMessage = signal<string>('');
 
   handleInputChange(value: string) {
     this.inputJson.set(value);
@@ -21,7 +23,7 @@ export class JsonTools {
       const parsed = JSON.parse(this.inputJson());
       this.outputText.set(JSON.stringify(parsed, null, 2));
     } catch {
-      this.outputText.set('Invalid JSON');
+      this.errorMessage.set('Invalid JSON');
     }
   }
 
@@ -31,15 +33,19 @@ export class JsonTools {
       const interfaceString = this.convertToInterface(parsed);
       this.outputText.set(interfaceString);
     } catch {
-      this.outputText.set('Invalid JSON');
+      this.errorMessage.set('Invalid JSON');
     }
+  }
+
+  copyToClipboard() {
+    navigator.clipboard.writeText(this.outputText());
   }
 
   private convertToInterface(obj: any, name = 'RootObject'): string {
     const lines: string[] = [];
-    const visited = new Map<any, string>(); // למניעת לולאות אין סופיות
+    const visited = new Map<any, string>();
     const convert = (o: any, typeName: string): string[] => {
-      if (visited.has(o)) return []; // כבר ראינו את האובייקט הזה
+      if (visited.has(o)) return [];
       visited.set(o, typeName);
 
       const result: string[] = [];
@@ -83,5 +89,11 @@ export class JsonTools {
 
   private capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  ngOnDestroy() {
+    this.inputJson.set('');
+    this.outputText.set('');
+    this.errorMessage.set('');
   }
 }

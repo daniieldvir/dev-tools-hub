@@ -19,6 +19,10 @@
         min-height: 400px;
         resize: none;
       }
+
+      .output-container {
+        @include output-container;
+      }
     }
 
     .json-tools-buttons {

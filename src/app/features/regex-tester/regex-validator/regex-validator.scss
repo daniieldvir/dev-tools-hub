@@ -5,7 +5,7 @@
 
   .regex-input-row .flags {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.35rem;
     margin-left: 0.75rem;
 
     .flag-btn {
@@ -18,54 +18,98 @@
       font-family: 'Fira Code', monospace;
       font-size: 0.85rem;
       cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
       &.active {
         background: rgba(255, 199, 150, 0.15);
-        border-color: rgba(255, 199, 150, 0.4);
+        border-color: rgba(255, 199, 150, 0.5);
         color: #ffc796;
+        box-shadow:
+          0 0 10px rgba(255, 199, 150, 0.2),
+          inset 0 0 5px rgba(255, 199, 150, 0.1);
+        text-shadow: 0 0 5px rgba(255, 199, 150, 0.4);
       }
     }
   }
 
-  .match-count {
-    color: #4ade80;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.75rem;
+  .button {
+    width: 200px;
+    margin-left: auto;
+    display: block;
   }
 
-  .highlighted-result {
-    background: #09090b;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    color: #e4e4e7;
-    padding: 1rem;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    word-break: break-all;
-    margin-bottom: 1rem;
+  textarea {
+    resize: none;
   }
 
-  .match-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0.75rem;
-    .match-index {
-      color: #71717a;
-      font-size: 0.8rem;
+  .matches-section {
+    margin-top: 20px;
+    animation: fadeInSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    .match-count {
+      color: #4ade80;
       font-weight: 600;
-      min-width: 30px;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
     }
-    code {
-      color: #ffc796;
-      font-family: 'Fira Code', monospace;
-      background: rgba(255, 199, 150, 0.08);
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-    }
-  }
 
-  .no-matches {
-    color: #71717a;
+    .highlighted-result {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      color: #e4e4e7;
+      padding: 1.25rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin-bottom: 1.5rem;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+    }
+
+    .match-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .match-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 199, 150, 0.05);
+        border-color: rgba(255, 199, 150, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .match-index {
+        color: #71717a;
+        font-size: 0.8rem;
+        font-weight: 600;
+        min-width: 30px;
+      }
+
+      code {
+        color: #ffc796;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.9rem;
+      }
+    }
   }
 }

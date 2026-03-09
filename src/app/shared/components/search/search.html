@@ -1,10 +1,12 @@
 <div class="search-container fade-in">
   <div class="input-wrapper">
     <lucide-icon name="search" class="icon" [size]="20" />
-    <input type="text" class="search-input" placeholder="What tool do you need today?"
-      (input)="onSearchTermChanged($event)" />
-    <div class="search-shortcut">
-      <span>⌘</span><span>K</span>
-    </div>
+    <input
+      type="text"
+      class="search-input"
+      placeholder="What tool do you need today?"
+      (input)="onSearchTermChanged($event)"
+    />
+    <div class="search-shortcut"><span>⌘</span><span>K</span></div>
   </div>
 </div>

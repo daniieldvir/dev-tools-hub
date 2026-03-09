@@ -14,6 +14,7 @@ export interface JwtPayload {
 })
 export class JwtDecoderService {
   payload = signal<JwtPayload | null>(null);
+  error = signal<string | null>(null);
 
   decode(token: string) {
     try {
@@ -21,8 +22,8 @@ export class JwtDecoderService {
       this.payload.set(decoded);
       return decoded;
     } catch (e) {
-      console.error('Invalid JWT token', e);
       this.payload.set(null);
+      this.error.set((e as Error).message ?? 'Invalid JWT token');
       return null;
     }
   }
