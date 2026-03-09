@@ -1,1 +1,30 @@
-<p>base64 works!</p>
+<div class="base64-container">
+  <h2>Base64 Converter</h2>
+
+  <div class="base64-content">
+    <textarea
+      placeholder="Enter text here"
+      [value]="text()"
+      (input)="handleInputChange($event)"
+    >
+    </textarea>
+
+    <div class="output-container">
+      @if (result()) {
+        <textarea [value]="result()" readonly></textarea>
+        <lucide-icon class="copy-icon" name="copy" [size]="18" (click)="copyToClipboard()" />
+      } @else {
+        @if (error()) {
+          <p class="description error">{{ error() }}</p>
+        } @else {
+          <p class="description">No result yet</p>
+        }
+      }
+    </div>
+  </div>
+
+  <div class="base64-buttons">
+    <app-button class="button" [label]="'Encode to Base64'" (click)="encode()" />
+    <app-button class="button" [label]="'Decode from Base64'" (click)="decode()" />
+  </div>
+</div>
