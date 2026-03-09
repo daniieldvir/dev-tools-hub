@@ -1,1 +1,30 @@
-<p>color-converter works!</p>
+<div class="color-converter-container">
+  <h2>Color Converter</h2>
+
+  <div class="color-preview" [style.background]="hex()">
+    <input
+      class="native-picker"
+      type="color"
+      [value]="hex()"
+      (input)="onHexChange($any($event.target).value)"
+    />
+    <span class="picker-hint">Click to pick a color</span>
+  </div>
+
+  <div class="formats-section">
+    <div class="format-card">
+      <label>HEX</label>
+      <input [value]="hex()" (input)="onHexChange($any($event.target).value)" placeholder="#000000" />
+    </div>
+
+    <div class="format-card">
+      <label>RGB</label>
+      <input [value]="rgb()" (input)="onRgbChange($any($event.target).value)" placeholder="rgb(0, 0, 0)" />
+    </div>
+
+    <div class="format-card">
+      <label>HSL</label>
+      <input [value]="hsl()" (input)="onHslChange($any($event.target).value)" placeholder="hsl(0, 0%, 0%)" />
+    </div>
+  </div>
+</div>

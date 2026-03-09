@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { Button } from '../../shared/components/button/button';
-import { LucideAngularModule } from 'lucide-angular';
 import { FormsModule } from '@angular/forms';
+import { LucideAngularModule } from 'lucide-angular';
+import { Button } from '../../shared/components/button/button';
 
 @Component({
   selector: 'app-uuid-generator',
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './uuid-generator.scss',
 })
 export class UuidGenerator {
-  uuid = signal('');
+  public uuid = signal<string>('');
 
   generate() {
     this.uuid.set(crypto.randomUUID());

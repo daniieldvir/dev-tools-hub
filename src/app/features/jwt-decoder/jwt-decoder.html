@@ -22,5 +22,5 @@
       }
     </div>
   </div>
-  <app-button class="button" (click)="decodeToken()" [label]="'Decode'" />
+  <app-button class="button" (click)="decodeToken()" [label]="'Decode'" [disabled]="!token()" />
 </div>

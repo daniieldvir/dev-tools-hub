@@ -1,0 +1,81 @@
+@import '../../styles/_features.scss';
+:host {
+  display: block;
+  height: 100%;
+
+  .color-converter-container {
+    @include feature-container;
+
+    .color-preview {
+      position: relative;
+      border-radius: 14px;
+      min-height: 140px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+      overflow: hidden;
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+
+        .picker-hint {
+          opacity: 1;
+        }
+      }
+
+      .native-picker {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+      }
+
+      .picker-hint {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+      }
+    }
+
+    .formats-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+
+      .format-card {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        label {
+          color: #a1a1aa;
+          font-size: 0.8rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        input {
+          @include input-style;
+          padding: 0.85rem 1rem;
+        }
+      }
+    }
+  }
+}

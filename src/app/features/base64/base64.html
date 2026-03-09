@@ -24,7 +24,7 @@
   </div>
 
   <div class="base64-buttons">
-    <app-button class="button" [label]="'Encode to Base64'" (click)="encode()" />
-    <app-button class="button" [label]="'Decode from Base64'" (click)="decode()" />
+    <app-button class="button" [label]="'Encode to Base64'" (click)="encode()" [disabled]="!text()" />
+    <app-button class="button" [label]="'Decode from Base64'" (click)="decode()" [disabled]="!result()" />
   </div>
 </div>
