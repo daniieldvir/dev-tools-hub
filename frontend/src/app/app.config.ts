@@ -1,0 +1,75 @@
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideBrowserGlobalErrorListeners,
+} from '@angular/core';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import {
+  ArrowRight,
+  Braces,
+  Clipboard,
+  Clock,
+  Code,
+  Copy,
+  Database,
+  FileText,
+  Globe,
+  Hash,
+  Home,
+  KeyRound,
+  Layers,
+  LayoutDashboard,
+  Loader,
+  LucideAngularModule,
+  Monitor,
+  Scissors,
+  Search,
+  Settings,
+  Shield,
+  Terminal,
+  Upload,
+  Wrench,
+  X,
+} from 'lucide-angular';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',
+        anchorScrolling: 'enabled',
+      }),
+    ),
+    importProvidersFrom(
+      LucideAngularModule.pick({
+        Search,
+        Home,
+        LayoutDashboard,
+        Wrench,
+        ArrowRight,
+        Braces,
+        KeyRound,
+        FileText,
+        Shield,
+        Terminal,
+        Hash,
+        Clock,
+        Globe,
+        Scissors,
+        Settings,
+        Upload,
+        Code,
+        Clipboard,
+        Monitor,
+        Database,
+        Layers,
+        Copy,
+        X,
+        Loader,
+      }),
+    ),
+  ],
+};

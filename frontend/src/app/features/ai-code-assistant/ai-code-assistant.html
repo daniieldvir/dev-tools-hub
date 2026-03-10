@@ -1,0 +1,58 @@
+<div class="ai-code-assistant-container">
+  <h2>AI Code Assistant</h2>
+
+  <div class="header">
+    <div class="modes">
+      @for (m of modes; track m.id) {
+        <app-chip [label]="m.label" [isActive]="mode() === m.id" (click)="onModeChange(m.id)" />
+      }
+    </div>
+
+    <div class="language">
+      <label>
+        Language / Stack
+        <input
+          type="text"
+          [value]="language()"
+          (input)="onLanguageChange($any($event.target).value)"
+          placeholder="TypeScript, React, Angular..."
+        />
+      </label>
+    </div>
+  </div>
+
+  <div class="ai-code-assistant-content">
+    <app-textarea
+      class="input-textarea"
+      [value]="code()"
+      [placeholder]="'Paste a function, component, or snippet...'"
+      (handleInputChange)="onCodeChange($event)"
+    />
+
+    <div class="output-wrapper">
+      <app-textarea
+        class="output-textarea"
+        [value]="result()"
+        [placeholder]="'AI output'"
+        [isOutputContainer]="true"
+        [description]="result() ? '' : 'The AI output will appear here.'"
+        [errorMessage]="error() ?? ''"
+      />
+
+      @if (loading()) {
+        <div class="output-overlay">
+          <lucide-icon name="loader" class="spinner"></lucide-icon>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="buttons">
+    <app-button
+      class="button"
+      [label]="loading() ? 'Running with AI...' : 'Run'"
+      [disabled]="loading()"
+      (click)="run()"
+    />
+  </div>
+</div>
