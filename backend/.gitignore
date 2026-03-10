@@ -1,8 +1,7 @@
 *.env
 *.log
 *.txt
-*.json
-!data/tools.json
+node_modules
 *.csv
 *.xlsx
 *.xls
