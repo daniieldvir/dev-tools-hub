@@ -20,7 +20,7 @@ export interface RunResult {
 })
 export class AiCodeAssistantService {
   private http = inject(HttpClient);
-  private readonly baseUrl = 'http://localhost:3000';
+  private readonly baseUrl = 'https://dev-tools-hub.onrender.com';
 
   run(options: RunOptions) {
     const trimmedCode = options.code.trim();
