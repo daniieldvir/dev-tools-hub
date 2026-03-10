@@ -23,7 +23,7 @@ app.use(express.json());
 
 app.get("/api/tools", (req: Request, res: Response) => {
   try {
-    const toolsPath = path.join(__dirname, "data/tools.json");
+    const toolsPath = path.join(process.cwd(), "data", "tools.json");
     const raw = fs.readFileSync(toolsPath, "utf-8");
     const tools = JSON.parse(raw);
     res.json(tools);

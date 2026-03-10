@@ -1,0 +1,72 @@
+[
+  {
+    "id": "json_tools",
+    "name": "JSON Tools",
+    "description": "Format and validate JSON data, convert JSON to TypeScript interface",
+    "icon": "Database",
+    "category": "data"
+  },
+  {
+    "id": "timestamp_converter",
+    "name": "Timestamp Converter",
+    "description": "Convert Unix timestamps to readable dates",
+    "icon": "Database",
+    "category": "data"
+  },
+  {
+    "id": "jwt_decoder",
+    "name": "JWT Decoder",
+    "description": "Decode JWT tokens to inspect payload",
+    "icon": "Shield",
+    "category": "security"
+  },
+  {
+    "id": "password_generator",
+    "name": "Password Generator",
+    "description": "Generate secure random passwords",
+    "icon": "Shield",
+    "category": "security"
+  },
+  {
+    "id": "regex_tester",
+    "name": "Regex Tester",
+    "description": "Create and test regular expressions",
+    "icon": "Code",
+    "category": "developer"
+  },
+  {
+    "id": "base64_encoder",
+    "name": "Base64 Encoder",
+    "description": "Convert text to and from Base64",
+    "icon": "Code",
+    "category": "encoding"
+  },
+  {
+    "id": "uuid_generator",
+    "name": "UUID Generator",
+    "description": "Generate random UUIDs",
+    "icon": "Hash",
+    "category": "utility"
+  },
+  {
+    "id": "color_converter",
+    "name": "Color Converter",
+    "description": "Convert color formats (HEX, RGB, HSL)",
+    "icon": "Globe",
+    "category": "web"
+  },
+  {
+    "id": "ai_code_reviewer",
+    "name": "AI Code Reviewer",
+    "description": "Review code with AI",
+    "icon": "Code",
+    "category": "developer"
+  },
+  {
+    "id": "ai_code_assistant",
+    "name": "AI Code Assistant",
+    "description": "Get help with code with AI",
+    "icon": "Code",
+    "category": "developer"
+  }
+]

@@ -2,6 +2,7 @@
 *.log
 *.txt
 *.json
+!data/tools.json
 *.csv
 *.xlsx
 *.xls
