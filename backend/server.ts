@@ -21,6 +21,11 @@ if (!process.env.GROQ_API_KEY) {
 app.use(cors());
 app.use(express.json());
 
+// Endpoint for keep-alive ping
+app.get("/api/ping", (req: Request, res: Response) => {
+  res.send("pong");
+});
+
 app.get("/api/tools", (req: Request, res: Response) => {
   try {
     const toolsPath = path.join(process.cwd(), "data", "tools.json");
@@ -150,4 +155,16 @@ app.post("/api/ai/code-assistant", async (req: Request, res: Response) => {
 
 app.listen(port, () => {
   console.log(`Backend listening on http://localhost:${port}`);
+
+  // Keep-alive ping to prevent Render's free tier from sleeping
+  // Render injects RENDER_EXTERNAL_URL automatically. If not found, defaults to localhost
+  const pingUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`;
+  setInterval(async () => {
+    try {
+      const response = await fetch(`${pingUrl}/api/ping`);
+      console.log(`Keep-alive ping sent to ${pingUrl}/api/ping. Status: ${response.status}`);
+    } catch (err) {
+      console.error("Error with keep-alive ping:", (err as Error).message);
+    }
+  }, 14 * 60 * 1000); // 14 mins
 });
