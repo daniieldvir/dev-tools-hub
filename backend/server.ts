@@ -157,8 +157,8 @@ app.listen(port, () => {
   console.log(`Backend listening on http://localhost:${port}`);
 
   // Keep-alive ping to prevent Render's free tier from sleeping
-  // Render injects RENDER_EXTERNAL_URL automatically. If not found, defaults to localhost
-  const pingUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`;
+  // Using the public URL is crucial because pinging localhost doesn't count as activity for Render.
+  const pingUrl = process.env.RENDER_EXTERNAL_URL || "https://dev-tools-hub.onrender.com";
   setInterval(async () => {
     try {
       const response = await fetch(`${pingUrl}/api/ping`);
