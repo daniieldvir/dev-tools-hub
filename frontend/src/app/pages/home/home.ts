@@ -6,10 +6,11 @@ import { ToolsServiceTs } from '../../core/services/tools.service.ts.js';
 import { FilterChip } from '../../shared/components/filter-chip/filter-chip.js';
 import { Search } from '../../shared/components/search/search';
 import { ToolCardComponent } from '../../shared/components/tool-card/tool-card';
+import { Spinner } from '../../shared/spinner/spinner';
 
 @Component({
   selector: 'app-home',
-  imports: [Search, ToolCardComponent, FilterChip],
+  imports: [Search, ToolCardComponent, FilterChip, Spinner],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

@@ -8,12 +8,12 @@ import {
 import { ButtonComponent } from '../../shared/components/button/button';
 import { Chip } from '../../shared/components/chip/chip';
 import { Textarea } from '../../shared/components/textarea/textarea';
-import { LucideAngularModule } from 'lucide-angular';
+import { Spinner } from '../../shared/spinner/spinner';
 
 @Component({
   selector: 'app-ai-code-assistant',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, Textarea, Chip, LucideAngularModule],
+  imports: [CommonModule, ButtonComponent, Textarea, Chip, Spinner],
   templateUrl: './ai-code-assistant.html',
   styleUrl: './ai-code-assistant.scss',
 })
@@ -34,17 +34,17 @@ export class AiCodeAssistant {
   ];
 
   onModeChange(mode: AiMode) {
+    this.resetResults();
     this.mode.set(mode);
-    this.result.set('');
-    this.error.set(null);
-    this.loading.set(false);
   }
 
   onCodeChange(value: string) {
     this.code.set(value);
+    this.result.set('');
   }
 
   onLanguageChange(value: string) {
+    this.resetResults();
     this.language.set(value);
   }
 
@@ -78,6 +78,10 @@ export class AiCodeAssistant {
   }
 
   ngOnDestroy() {
+    this.resetResults();
+  }
+
+  private resetResults() {
     this.code.set('');
     this.mode.set('explain');
     this.language.set('TypeScript');

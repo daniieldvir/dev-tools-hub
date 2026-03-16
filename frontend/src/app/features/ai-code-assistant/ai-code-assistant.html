@@ -40,9 +40,7 @@
       />
 
       @if (loading()) {
-        <div class="output-overlay">
-          <lucide-icon name="loader" class="spinner"></lucide-icon>
-        </div>
+         <app-spinner [size]="32" />
       }
     </div>
   </div>
