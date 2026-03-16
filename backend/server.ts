@@ -4,6 +4,7 @@ import express, { Request, Response } from "express";
 import fs from "fs";
 import Groq from "groq-sdk";
 import path from "path";
+import https from "https";
 
 type AiMode = "explain" | "refactor" | "naming";
 
@@ -22,6 +23,10 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint for keep-alive ping
+app.get("/health", (req: Request, res: Response) => {
+  res.json({ status: "ok" });
+});
+
 app.get("/api/ping", (req: Request, res: Response) => {
   res.send("pong");
 });
@@ -154,17 +159,27 @@ app.post("/api/ai/code-assistant", async (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-  console.log(`Backend listening on http://localhost:${port}`);
+  console.log(`🚀 Backend listening on http://localhost:${port}`);
 
-  // Keep-alive ping to prevent Render's free tier from sleeping
-  // Using the public URL is crucial because pinging localhost doesn't count as activity for Render.
+  // Keep-alive hack for Render free tier
+  // Pings the server every 14 minutes to prevent it from spinning down (which happens after 15m of inactivity)
   const pingUrl = process.env.RENDER_EXTERNAL_URL || "https://dev-tools-hub.onrender.com";
-  setInterval(async () => {
+  const interval = 14 * 60 * 1000; // 14 minutes
+
+  console.log(`[KeepAlive] Setting up ping to ${pingUrl}/health every 14 minutes`);
+
+  const ping = async () => {
     try {
-      const response = await fetch(`${pingUrl}/api/ping`);
-      console.log(`Keep-alive ping sent to ${pingUrl}/api/ping. Status: ${response.status}`);
-    } catch (err) {
-      console.error("Error with keep-alive ping:", (err as Error).message);
+      const response = await fetch(`${pingUrl}/health`);
+      console.log(`[KeepAlive] Ping status: ${response.status} ${response.statusText}`);
+    } catch (error) {
+      // Ignore errors (e.g. if internet is down locally)
+      console.log(`[KeepAlive] Ping failed: ${(error as Error).message}`);
     }
-  }, 14 * 60 * 1000); // 14 mins
+  };
+
+  // Initial ping
+  ping();
+
+  setInterval(ping, interval);
 });
