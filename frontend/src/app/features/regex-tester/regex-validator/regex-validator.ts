@@ -1,7 +1,6 @@
-import { JsonPipe } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Button } from '../../../shared/components/button/button';
+import { ButtonComponent } from '../../../shared/components/button/button';
 import { Textarea } from '../../../shared/components/textarea/textarea';
 import {
   createSafeRegex,
@@ -13,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-regex-validator',
-  imports: [FormsModule, Button, JsonPipe, Textarea],
+  imports: [FormsModule, ButtonComponent, Textarea],
   templateUrl: './regex-validator.html',
   styleUrl: './regex-validator.scss',
 })
@@ -26,14 +25,16 @@ export class RegexValidator {
   matchCount = signal(0);
   validationError = signal<string | null>(null);
 
+  handleRegexInputChange(value: string) {
+    this.regexInput.set(value);
+    this.resetResults();
+  }
+
   validateAndTest() {
     const pattern = this.regexInput();
 
     if (!pattern) {
-      this.validationResult.set(null);
-      this.matchResults.set([]);
-      this.matchCount.set(0);
-      this.validationError.set('');
+      this.resetResults();
       return;
     }
 
@@ -78,10 +79,22 @@ export class RegexValidator {
     return hasRegexFlag(this.regexFlags(), flag);
   }
 
-  ngOnDestroy() {
+  handleTestStringInputChange(event: any) {
+    this.testString.set(event);
+    this.resetResults();
+  }
+
+  private ngOnDestroy() {
     this.regexInput.set(null);
     this.testString.set(null);
     this.regexFlags.set('g');
+    this.validationResult.set(null);
+    this.matchResults.set([]);
+    this.matchCount.set(0);
+    this.validationError.set(null);
+  }
+
+  private resetResults() {
     this.validationResult.set(null);
     this.matchResults.set([]);
     this.matchCount.set(0);

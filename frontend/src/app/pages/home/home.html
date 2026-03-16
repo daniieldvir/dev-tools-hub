@@ -1,27 +1,25 @@
 <div class="container">
   @if (loading()) {
-    <div class="loading-spinner">
-      <div class="spinner"></div>
-    </div>
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
   } @else if (error()) {
-    <div class="error-message">{{ error() }}</div>
+  <div class="error-message">{{ error() }}</div>
   } @else {
-    <app-search (searchTermChanged)="onSearchTermChanged($event)" />
-    <div class="filters">
-      @for (category of categories(); track category) {
-        <app-filter-chip
-          [category]="category"
-          [(activeCategory)]="activeChip"
-          (activeCategoryChange)="onFilterChanged($event)"
-        />
-      }
-    </div>
-    <div class="tools-container">
-      @for (tool of filteredTools(); track tool.id) {
-        <app-tool-card [tool]="tool" (toolClicked)="handleToolClicked($event)" />
-      } @empty {
-        <p class="no-tools-found">No tools found</p>
-      }
-    </div>
+  <app-search (searchTermChanged)="onSearchTermChanged($event)" />
+  <div class="filters">
+    @for (category of categories(); track category) {
+    <app-filter-chip [category]="category" [(activeCategory)]="activeChip"
+      (activeCategoryChange)="onFilterChanged($event)" />
+    }
+  </div>
+  <div class="tools-container">
+    @for (tool of filteredTools(); track tool.id) {
+    <app-tool-card [tool]="tool" [isFavorite]="tool.isFavorite" (toggleFavorite)="onToggleFavorite($event)"
+      (toolClicked)="handleToolClicked($event)" />
+    } @empty {
+    <p class="no-tools-found">No tools found</p>
+    }
+  </div>
   }
 </div>

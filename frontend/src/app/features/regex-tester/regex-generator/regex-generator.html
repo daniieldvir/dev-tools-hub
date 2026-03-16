@@ -10,7 +10,7 @@
           class="input-text"
           [value]="generatorInput()"
           [placeholder]="'e.g. digit 3 times, letter, email, start'"
-          (handleInputChange)="generatorInput.set($event)"
+          (handleInputChange)="handleGeneratorInputChange($event)"
         />
         <app-button
           [label]="'Add'"

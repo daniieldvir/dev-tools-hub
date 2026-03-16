@@ -2,14 +2,14 @@ import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
 import { TOKEN_CATEGORIES } from '../../../core/constants/token.const';
-import { Button } from '../../../shared/components/button/button';
+import { ButtonComponent } from '../../../shared/components/button/button';
 import { Chip } from '../../../shared/components/chip/chip';
+import { Input } from '../../../shared/input/input';
 import {
   addPartFromInputSequenceSingle,
   buildValidRegex,
   copyToClipboard,
 } from '../../../shared/utils/regex.util';
-import { Input } from '../../../shared/input/input';
 
 type RegexPart = {
   label: string;
@@ -18,7 +18,7 @@ type RegexPart = {
 
 @Component({
   selector: 'app-regex-generator',
-  imports: [FormsModule, Button, Chip, LucideAngularModule, Input],
+  imports: [FormsModule, ButtonComponent, Chip, LucideAngularModule, Input],
   templateUrl: './regex-generator.html',
   styleUrl: './regex-generator.scss',
 })
@@ -35,6 +35,11 @@ export class RegexGenerator {
 
     return buildValidRegex(pattern);
   });
+
+  handleGeneratorInputChange(value: string) {
+    this.generatorInput.set(value);
+    this.resetResults();
+  }
 
   addPart(text: string) {
     const part = addPartFromInputSequenceSingle(text);
@@ -63,5 +68,9 @@ export class RegexGenerator {
   ngOnDestroy() {
     this.parts.set([]);
     this.generatorInput.set('');
+  }
+
+  private resetResults() {
+    this.parts.set([]);
   }
 }

@@ -4,4 +4,5 @@ export interface Tool {
   description: string;
   icon: string;
   category: string;
+  isFavorite?: boolean;
 }

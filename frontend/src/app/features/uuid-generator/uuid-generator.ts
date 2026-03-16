@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 
 @Component({
   selector: 'app-uuid-generator',
-  imports: [Button, LucideAngularModule, FormsModule],
+  imports: [ButtonComponent, LucideAngularModule, FormsModule],
   templateUrl: './uuid-generator.html',
   styleUrl: './uuid-generator.scss',
 })

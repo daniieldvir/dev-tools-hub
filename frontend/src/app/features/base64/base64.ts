@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 import { Textarea } from '../../shared/components/textarea/textarea';
 @Component({
   selector: 'app-base64',
-  imports: [Button, Textarea],
+  imports: [ButtonComponent, Textarea],
   templateUrl: './base64.html',
   styleUrl: './base64.scss',
 })

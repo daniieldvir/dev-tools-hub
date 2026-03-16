@@ -3,114 +3,120 @@
 :host {
   @include regex-tab-base;
 
-  .regex-input-row .flags {
+  .validator-layout {
     display: flex;
-    gap: 0.35rem;
-    margin-left: 0.75rem;
+    flex-direction: column;
 
-    .flag-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.03);
-      color: #71717a;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      &.active {
-        background: rgba(255, 199, 150, 0.15);
-        border-color: rgba(255, 199, 150, 0.5);
-        color: #ffc796;
-        box-shadow:
-          0 0 10px rgba(255, 199, 150, 0.2),
-          inset 0 0 5px rgba(255, 199, 150, 0.1);
-        text-shadow: 0 0 5px rgba(255, 199, 150, 0.4);
-      }
-    }
-  }
-
-  .button {
-    width: 200px;
-    margin-left: auto;
-    display: block;
-  }
-
-  .input-textarea {
-    --textarea-width: 100%;
-    --textarea-height: 100%;
-    --textarea-min-height: 120px;
-  }
-
-  .matches-section {
-    margin-top: 20px;
-    animation: fadeInSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-
-    .match-count {
-      color: #4ade80;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+    .regex-input-row .flags {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
-    }
+      gap: 0.35rem;
+      margin-left: 0.75rem;
 
-    .highlighted-result {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      color: #e4e4e7;
-      padding: 1.25rem;
-      line-height: 1.8;
-      white-space: pre-wrap;
-      word-break: break-all;
-      margin-bottom: 1.5rem;
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
-      font-family: 'Fira Code', monospace;
-      font-size: 0.95rem;
-    }
-
-    .match-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .match-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      transition: all 0.2s ease;
-
-      &:hover {
-        background: rgba(255, 199, 150, 0.05);
-        border-color: rgba(255, 199, 150, 0.2);
-        transform: translateY(-1px);
-      }
-
-      .match-index {
+      .flag-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.03);
         color: #71717a;
-        font-size: 0.8rem;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08);
+        }
+
+        &.active {
+          background: rgba(255, 199, 150, 0.15);
+          border-color: rgba(255, 199, 150, 0.5);
+          color: var(--secondary-color);
+          box-shadow:
+            0 0 10px var(--secondary-shadow),
+            inset 0 0 5px var(--secondary-shadow);
+          text-shadow: 0 0 5px var(--secondary-shadow);
+        }
+      }
+    }
+
+    .button {
+      --button-width: 200px;
+      margin-left: auto;
+      display: block;
+      align-self: self-end;
+    }
+
+    .input-textarea {
+      --textarea-width: 100%;
+      --textarea-height: 100%;
+      --textarea-min-height: 120px;
+    }
+
+    .matches-section {
+      margin-top: 20px;
+      animation: fadeInSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+      .match-count {
+        color: #4ade80;
         font-weight: 600;
-        min-width: 30px;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
       }
 
-      code {
-        color: #ffc796;
+      .highlighted-result {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        color: #e4e4e7;
+        padding: 1.25rem;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        word-break: break-all;
+        margin-bottom: 1.5rem;
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
         font-family: 'Fira Code', monospace;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      .match-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .match-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba(255, 199, 150, 0.05);
+          border-color: rgba(255, 199, 150, 0.2);
+          transform: translateY(-1px);
+        }
+
+        .match-index {
+          color: #71717a;
+          font-size: 0.8rem;
+          font-weight: 600;
+          min-width: 30px;
+        }
+
+        code {
+          color: var(--secondary-color);
+          font-family: 'Fira Code', monospace;
+          font-size: 0.9rem;
+        }
       }
     }
   }

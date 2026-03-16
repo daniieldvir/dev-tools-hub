@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 import { Chip } from '../../shared/components/chip/chip';
 
 @Component({
   selector: 'app-password-generator',
-  imports: [Chip, Button, LucideAngularModule],
+  imports: [Chip, ButtonComponent, LucideAngularModule],
   templateUrl: './password-generator.html',
   styleUrl: './password-generator.scss',
 })

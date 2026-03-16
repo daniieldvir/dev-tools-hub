@@ -21,15 +21,15 @@
     &:hover {
       background: rgba(255, 199, 150, 0.1);
       border-color: rgba(255, 199, 150, 0.4);
-      color: #ffc796;
-      box-shadow: 0 0 10px rgba(255, 199, 150, 0.2);
+      color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--secondary-shadow);
       transform: translateY(-1px);
     }
 
     &.active {
-      color: #ffc796;
+      color: var(--secondary-color);
       border-color: rgba(255, 199, 150, 0.4);
-      box-shadow: 0 0 10px rgba(255, 199, 150, 0.2);
+      box-shadow: 0 0 10px var(--secondary-shadow);
       transform: translateY(-1px);
     }
   }

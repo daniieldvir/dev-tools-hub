@@ -1,3 +1,14 @@
-<button class="button" (click)="handleClick()" [disabled]="disabled()">
-  <p>{{ label() }}</p>
+<button
+  class="button"
+  [ngClass]="[variant(), active() ? 'active' : '']"
+  (click)="handleClick()"
+  [disabled]="disabled()"
+>
+  @if (icon()) {
+    <lucide-icon [name]="icon()!.name" [size]="icon()!.size" />
+  }
+
+  @if (label()) {
+    <p>{{ label() }}</p>
+  }
 </button>

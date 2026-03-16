@@ -8,7 +8,7 @@
         <input
           type="text"
           [ngModel]="regexInput()"
-          (ngModelChange)="regexInput.set($event)"
+          (ngModelChange)="handleRegexInputChange($event)"
           placeholder="Enter regex pattern..."
           class="regex-pattern-input"
         />
@@ -35,7 +35,7 @@
         class="input-textarea"
         [value]="testString() ?? ''"
         [placeholder]="'Enter text to test against...'"
-        (handleInputChange)="testString.set($event)"
+        (handleInputChange)="handleTestStringInputChange($event)"
       />
     </div>
 

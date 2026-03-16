@@ -7,15 +7,15 @@
       <h1 class="brand-title" routerLink="/">DevTools Hub</h1>
     </div>
     <nav class="main-nav">
-      <ul>
-        <li>
-          <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">
-            <lucide-icon name="home" class="nav-icon" [size]="18" />
-            <span>Home</span>
-          </a>
-        </li>
-        <li></li>
-      </ul>
+      <app-button 
+        label="Home" 
+        (click)="onHomeClick()" 
+        [active]="isRouteActive('/')" />
+    
+      <app-button 
+        label="Favorites" 
+        (click)="onFavoritesClick()" 
+        [active]="isRouteActive('/favorites')" />
     </nav>
   </div>
 </header>

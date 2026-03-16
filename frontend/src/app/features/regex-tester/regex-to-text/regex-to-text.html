@@ -9,7 +9,7 @@
         <input
           type="text"
           [ngModel]="regexToParseInput()"
-          (ngModelChange)="regexToParseInput.set($event)"
+          (ngModelChange)="handleRegexToParseInputChange($event)"
           (keydown.enter)="parseRegexToText()"
           placeholder="Enter regex to explain..."
           class="regex-pattern-input"

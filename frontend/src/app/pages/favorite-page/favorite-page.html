@@ -1,0 +1,12 @@
+@if (favoriteTools()) {
+<div class="favorite-page">
+    <h2>Favorite Tools</h2>
+    <div class="favorite-tools">
+        @for (tool of favoriteTools() ; track $index) {
+        <app-tool-card [tool]="tool" [isFavorite]="true" (toggleFavorite)="onToggleFavorite(tool)" />
+        }@empty {
+        <p class="no-favorites">No favorite tools yet.</p>
+        }
+    </div>
+</div>
+}

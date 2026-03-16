@@ -158,24 +158,25 @@ app.post("/api/ai/code-assistant", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/", (req: Request, res: Response) => {
+  res.json({ message: "Backend is running", time: new Date().toISOString() });
+});
+
 app.listen(port, () => {
   console.log(`🚀 Backend listening on http://localhost:${port}`);
 
   // Keep-alive hack for Render free tier
-  // Pings the server every 14 minutes to prevent it from spinning down (which happens after 15m of inactivity)
   const pingUrl = process.env.RENDER_EXTERNAL_URL || "https://dev-tools-hub.onrender.com";
   const interval = 14 * 60 * 1000; // 14 minutes
 
-  console.log(`[KeepAlive] Setting up ping to ${pingUrl}/health every 14 minutes`);
+  console.log(`[KeepAlive] Target URL: ${pingUrl}/health`);
 
-  const ping = async () => {
-    try {
-      const response = await fetch(`${pingUrl}/health`);
-      console.log(`[KeepAlive] Ping status: ${response.status} ${response.statusText}`);
-    } catch (error) {
-      // Ignore errors (e.g. if internet is down locally)
-      console.log(`[KeepAlive] Ping failed: ${(error as Error).message}`);
-    }
+  const ping = () => {
+    https.get(`${pingUrl}/health`, (res) => {
+      console.log(`[KeepAlive] Ping status: ${res.statusCode} ${res.statusMessage}`);
+    }).on('error', (err) => {
+      console.log(`[KeepAlive] Ping failed: ${err.message}`);
+    });
   };
 
   // Initial ping
@@ -183,3 +184,5 @@ app.listen(port, () => {
 
   setInterval(ping, interval);
 });
+
+

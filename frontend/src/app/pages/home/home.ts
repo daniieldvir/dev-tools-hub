@@ -9,7 +9,7 @@ import { ToolCardComponent } from '../../shared/components/tool-card/tool-card';
 
 @Component({
   selector: 'app-home',
-  imports: [Search, ToolCardComponent, FilterChip, JsonPipe],
+  imports: [Search, ToolCardComponent, FilterChip],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -28,22 +28,25 @@ export class HomeComponent {
   public filteredTools = computed(() => {
     const term = this.searchTerm().toLowerCase();
     const category = this.activeChip();
+    const favIds = this.toolsService.favoriteIds();
 
     return this.tools().filter((tool) => {
       const matchesCategory = category === 'all' || tool.category === category;
       const matchesSearch = tool.name.toLowerCase().includes(term);
       return matchesCategory && matchesSearch;
-    });
+    }).map((tool) => ({
+      ...tool,
+      isFavorite: favIds.includes(tool.id)
+    }));
   });
+
 
   onSearchTermChanged(searchTerm: string) {
     this.searchTerm.set(searchTerm);
-    console.log('searchTerm', searchTerm);
   }
 
   onFilterChanged(category: string) {
     this.activeChip.set(category);
-    console.log('category', category);
   }
 
   handleToolClicked(tool: Tool) {
@@ -53,5 +56,9 @@ export class HomeComponent {
     }
 
     this.router.navigate(['feature', tool.id]);
+  }
+
+  onToggleFavorite(tool: Tool) {
+    this.toolsService.toggleFavorite(tool);
   }
 }

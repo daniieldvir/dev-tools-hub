@@ -5,7 +5,7 @@ import {
   AiMode,
   RunOptions,
 } from '../../core/services/ai-code-assistant.service';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 import { Chip } from '../../shared/components/chip/chip';
 import { Textarea } from '../../shared/components/textarea/textarea';
 import { LucideAngularModule } from 'lucide-angular';
@@ -13,7 +13,7 @@ import { LucideAngularModule } from 'lucide-angular';
 @Component({
   selector: 'app-ai-code-assistant',
   standalone: true,
-  imports: [CommonModule, Button, Textarea, Chip, LucideAngularModule],
+  imports: [CommonModule, ButtonComponent, Textarea, Chip, LucideAngularModule],
   templateUrl: './ai-code-assistant.html',
   styleUrl: './ai-code-assistant.scss',
 })

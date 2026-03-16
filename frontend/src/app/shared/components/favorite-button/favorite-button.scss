@@ -1,0 +1,25 @@
+.favorite-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+
+  &.active {
+    color: #ff4b4b;
+    fill: #ff4b4b;
+  }
+
+  &:hover {
+    color: #ef4444;
+    transform: scale(1.1) !important;
+  }
+}

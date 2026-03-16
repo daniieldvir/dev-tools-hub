@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 import { Input } from '../../shared/input/input';
 
 @Component({
   selector: 'app-timestamp-converter',
-  imports: [Button, FormsModule, Input],
+  imports: [ButtonComponent, FormsModule, Input],
   templateUrl: './timestamp-converter.html',
   styleUrl: './timestamp-converter.scss',
 })

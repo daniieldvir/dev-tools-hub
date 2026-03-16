@@ -1,12 +1,12 @@
 import { JsonPipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { JwtDecoderService } from '../../core/services/jwt-decoder-service';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 import { Textarea } from '../../shared/components/textarea/textarea';
 
 @Component({
   selector: 'app-jwt-decoder',
-  imports: [Button, Textarea, JsonPipe],
+  imports: [ButtonComponent, Textarea, JsonPipe],
   templateUrl: './jwt-decoder.html',
   styleUrl: './jwt-decoder.scss',
 })

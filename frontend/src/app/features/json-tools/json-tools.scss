@@ -27,10 +27,7 @@
       gap: 1rem;
       justify-content: flex-end;
       margin-top: 1.5rem;
-
-      .button {
-        width: 200px;
-      }
+      --button-width: 200px;
     }
   }
 }

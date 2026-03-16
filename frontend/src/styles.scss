@@ -12,6 +12,13 @@
   --primary-hover: #60a5fa;
   --accent-color: #7dd3fc;
 
+  --secondary-color: #ffc796;
+  --secondary-hover: #ff9fa0;
+  --secondary-active: #ffc796;
+
+  --secondary-gradient: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover) 100%);
+  --secondary-shadow: 0 4px 12px rgba(255, 199, 150, 0.3);
+
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
@@ -22,12 +29,6 @@
   --error-color: #f87171;
   --error-color-bg: #f871711a;
 
-  /* Supplemental Warm / Regex Palette */
-  --regex-primary: #ffc796;
-  --regex-hover: #ff9fa0;
-  --regex-accent: #ffc796;
-  --regex-gradient: linear-gradient(135deg, var(--regex-accent) 0%, var(--regex-hover) 100%);
-  --regex-shadow: 0 4px 12px rgba(255, 199, 150, 0.3);
 }
 
 /* Reset & Base Styles */

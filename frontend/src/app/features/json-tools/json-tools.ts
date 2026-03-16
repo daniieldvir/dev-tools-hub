@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { Button } from '../../shared/components/button/button';
+import { ButtonComponent } from '../../shared/components/button/button';
 import { Textarea } from '../../shared/components/textarea/textarea';
 
 @Component({
   selector: 'app-json-tools',
-  imports: [Button, Textarea],
+  imports: [ButtonComponent, Textarea],
   templateUrl: './json-tools.html',
   styleUrl: './json-tools.scss',
 })

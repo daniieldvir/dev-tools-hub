@@ -1,27 +1,89 @@
+:host {
+  display: inline-flex;
+}
+
 .button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  gap: 0.4rem;
+  padding: var(--button-padding, 0.5rem 1.25rem);
   font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  transition: all 0.2s ease;
-  background: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-  border: none;
+  font-size: 0.9rem;
+  border: 1.5px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  width: 100%;
+  outline: none;
+  font-family: inherit;
+  white-space: nowrap;
+  background: transparent;
+  width: var(--button-width);
+  height: var(--button-height);
+  border-radius: var(--button-border-radius, 8px);
+
+  p {
+    margin: 0;
+    line-height: normal;
+  }
 
   &:disabled,
   &.disabled {
-    opacity: 0.6;
-    cursor: auto;
-    background: var(--surface-hover);
-    color: var(--text-muted);
-    box-shadow: none;
-    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--surface-hover) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+
+  &.primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    &.active {
+      background-color: var(--primary-color);
+      color: white;
+      box-shadow: 0 8px 15px -3px rgba(59, 130, 246, 0.3);
+    }
+
+    &.active:hover {
+      background-color: var(--primary-hover);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    }
+  }
+
+  &.secondary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+
+    &.active {
+      background: var(--secondary-gradient);
+      color: var(--bg-color);
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(255, 199, 150, 0.2);
+
+      lucide-icon {
+        &[name='heart'] {
+          fill: currentColor;
+          animation: heart-beat 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+      }
+    }
+
+    &.active:hover {
+      filter: brightness(1.05);
+      box-shadow: 0 6px 16px rgba(255, 199, 150, 0.25);
+    }
   }
 }

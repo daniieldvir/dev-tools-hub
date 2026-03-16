@@ -61,12 +61,11 @@
         bottom: 0.35rem;
         left: 0.35rem;
         width: 175px;
-        /* Matches tab width */
-        background: linear-gradient(135deg, #ffc796 0%, #ff9fa0 100%);
+        background: var(--secondary-gradient);
         border-radius: 99px;
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1;
-        box-shadow: 0 4px 12px rgba(255, 199, 150, 0.3);
+        box-shadow: var(--secondary-shadow);
 
         &.validator {
           transform: translateX(0);

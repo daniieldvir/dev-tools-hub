@@ -1,0 +1,21 @@
+.favorite-page {
+  h2 {
+    text-align: center;
+  }
+
+  .favorite-tools {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    --card-width: 280px;
+    --card-height: 280px;
+  }
+
+  .no-favorites {
+    text-align: center;
+    padding-top: 2rem;
+    color: var(--text-color);
+  }
+}
